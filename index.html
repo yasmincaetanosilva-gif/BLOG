@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Explorando Horizontes</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- Cabeçalho -->
+
+<header>
+
+<div class="logo">
+📸 Explorando Horizontes
+</div>
+
+<nav>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#destinos">Destinos</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<!-- Banner principal -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+
+<h1>Viaje, fotografe e conte histórias</h1>
+
+<p>
+Descubra lugares incríveis através de imagens e experiências.
+</p>
+
+<button>Explorar</button>
+
+</div>
+
+</section>
+
+<!-- Destaques -->
+
+<section class="destaques" id="destinos">
+
+    <div class="item">
+    
+    <h2>🌍 50+</h2>
+    <p>Destinos visitados</p>
+    
+    </div>
+    
+    <div class="item">
+    
+    <h2>📸 1200+</h2>
+    <p>Fotografias capturadas</p>
+    
+    </div>
+    
+    <div class="item">
+    
+    <h2>✈️ 20+</h2>
+    <p>Países explorados</p>
+    
+    </div>
+    
+    </section>
+
+<!-- Pesquisa -->
+
+<section class="pesquisa">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Pesquisar destino..."
+>
+
+</section>
+
+<!-- Posts -->
+
+<main id="galeria">
+
+    <section class="titulo-posts">
+    
+    <h2>📸 Destinos em Destaque</h2>
+    
+    <p>
+    Explore lugares incríveis ao redor do mundo
+    </p>
+    
+    </section>
+    
+    <div id="posts-container">
+    
+    </div>
+    
+    </main>
+
+<!-- Rodapé -->
+
+<footer id="contato">
+
+    <!-- Janela do artigo -->
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+          <button id="fechar" class="modal-close">&times;</button>
+          <h2 id="modal-titulo"></h2>
+          <img id="modal-img" alt="">
+          <p id="modal-texto"></p>
+        </div>
+      </div>
+
+<p>
+© 2026 Explorando Horizontes
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
