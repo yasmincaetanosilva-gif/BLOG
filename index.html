@@ -1,137 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Explorando Horizontes</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog de Viagens</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- Cabeçalho -->
+    <header>
+        <h1>Vagando pelo Mundo</h1>
+        <p>Minhas aventuras, dicas e roteiros de viagem</p>
+    </header>
 
-<header>
-
-<div class="logo">
-📸 Explorando Horizontes
-</div>
-
-<nav>
-    <ul>
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#destinos">Destinos</a></li>
-      <li><a href="#galeria">Galeria</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-
-</header>
-
-<!-- Banner principal -->
-
-<section class="hero" id="inicio">
-
-<div class="hero-text">
-
-<h1>Viaje, fotografe e conte histórias</h1>
-
-<p>
-Descubra lugares incríveis através de imagens e experiências.
-</p>
-
-<button>Explorar</button>
-
-</div>
-
-</section>
-
-<!-- Destaques -->
-
-<section class="destaques" id="destinos">
-
-    <div class="item">
-    
-    <h2>🌍 50+</h2>
-    <p>Destinos visitados</p>
-    
-    </div>
-    
-    <div class="item">
-    
-    <h2>📸 1200+</h2>
-    <p>Fotografias capturadas</p>
-    
-    </div>
-    
-    <div class="item">
-    
-    <h2>✈️ 20+</h2>
-    <p>Países explorados</p>
-    
-    </div>
-    
+    <section class="filtros">
+        <button class="btn-filtro active" onclick="filtrarDestinos('todos', this)">Todos</button>
+        <button class="btn-filtro" onclick="filtrarDestinos('praia', this)">Praias</button>
+        <button class="btn-filtro" onclick="filtrarDestinos('cidade', this)">Cidades</button>
+        <button class="btn-filtro" onclick="filtrarDestinos('natureza', this)">Natureza</button>
     </section>
 
-<!-- Pesquisa -->
+    <main class="feed">
+        <article class="card" data-categoria="cidade">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500" alt="Paris">
+            <div class="card-conteudo">
+                <span class="tag">Cidade</span>
+                <h2>7 dias mágicos em Paris</h2>
+                <p>Descubra os segredos da Cidade Luz além da Torre Eiffel. Roteiros gastronômicos e museus imperdíveis.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirDica('Paris é linda no outono! Não deixe de visitar o bairro de Montmartre.')">Ver Dica Rápida</button>
+                </div>
+            </div>
+        </article>
 
-<section class="pesquisa">
+        <article class="card" data-categoria="praia">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Praia">
+            <div class="card-conteudo">
+                <span class="tag">Praia</span>
+                <h2>As praias secretas de Malta</h2>
+                <p>Um guia completo pelas águas cristalinas do Mediterrâneo. Como chegar e o que levar para aproveitar o sol.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirDica('Leve sapatos de água! As praias mais bonitas de Malta são de pedra.')">Ver Dica Rápida</button>
+                </div>
+            </div>
+        </article>
 
-<input
-type="text"
-id="searchInput"
-placeholder="Pesquisar destino..."
->
-
-</section>
-
-<!-- Posts -->
-
-<main id="galeria">
-
-    <section class="titulo-posts">
-    
-    <h2>📸 Destinos em Destaque</h2>
-    
-    <p>
-    Explore lugares incríveis ao redor do mundo
-    </p>
-    
-    </section>
-    
-    <div id="posts-container">
-    
-    </div>
-    
+        <article class="card" data-categoria="natureza">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500" alt="Montanhas">
+            <div class="card-conteudo">
+                <span class="tag">Natureza</span>
+                <h2>Trilhas na Patagônia Argentina</h2>
+                <p>Pronto para a aventura? Conheça o Monte Fitz Roy e os desafios das trilhas mais bonitas da América do Sul.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirDica('O clima muda muito rápido. Vista-se em camadas e leve casaco corta-vento!')">Ver Dica Rápida</button>
+                </div>
+            </div>
+        </article>
     </main>
 
-<!-- Rodapé -->
-
-<footer id="contato">
-
-    <!-- Janela do artigo -->
-
-    <div class="modal" id="modal">
-        <div class="modal-content">
-          <button id="fechar" class="modal-close">&times;</button>
-          <h2 id="modal-titulo"></h2>
-          <img id="modal-img" alt="">
-          <p id="modal-texto"></p>
-        </div>
-      </div>
-
-<p>
-© 2026 Explorando Horizontes
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
