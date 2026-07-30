@@ -3,63 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog de Viagens</title>
+    <title>Vagando pelo Mundo | Blog de Viagens</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>Vagando pelo Mundo</h1>
-        <p>Minhas aventuras, dicas e roteiros de viagem</p>
+    <header class="hero">
+        <button id="btn-tema" class="btn-tema" onclick="alternarTema()" aria-label="Alternar Tema">
+            <span id="icone-tema">🌙</span>
+        </button>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Explorar o Mundo</span>
+            <h1>Vagando pelo Mundo</h1>
+            <p>Aventuras inesquecíveis, roteiros exclusivos e dicas essenciais de viagem.</p>
+        </div>
     </header>
 
-    <section class="filtros">
-        <button class="btn-filtro active" onclick="filtrarDestinos('todos', this)">Todos</button>
-        <button class="btn-filtro" onclick="filtrarDestinos('praia', this)">Praias</button>
-        <button class="btn-filtro" onclick="filtrarDestinos('cidade', this)">Cidades</button>
-        <button class="btn-filtro" onclick="filtrarDestinos('natureza', this)">Natureza</button>
+    <section class="filtros-container">
+        <div class="filtros">
+            <button class="btn-filtro active" onclick="filtrarDestinos('todos', this)">Todos</button>
+            <button class="btn-filtro" onclick="filtrarDestinos('praia', this)">Praias</button>
+            <button class="btn-filtro" onclick="filtrarDestinos('cidade', this)">Cidades</button>
+            <button class="btn-filtro" onclick="filtrarDestinos('natureza', this)">Natureza</button>
+        </div>
     </section>
 
     <main class="feed">
         <article class="card" data-categoria="cidade">
-            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500" alt="Paris">
-            <div class="card-conteudo">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" alt="França">
                 <span class="tag">Cidade</span>
-                <h2>7 dias mágicos em Paris</h2>
-                <p>Descubra os segredos da Cidade Luz além da Torre Eiffel. Roteiros gastronômicos e museus imperdíveis.</p>
+            </div>
+            <div class="card-conteudo">
+                <h2>7 dias mágicos na França</h2>
+                <p>Descubra os segredos de Paris além da Torre Eiffel, passeios pelo Rio Sena e alta gastronomia.</p>
                 <div class="card-botoes">
                     <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
-                    <button class="btn-ler-mais" onclick="abrirDica('Paris é linda no outono! Não deixe de visitar o bairro de Montmartre.')">Ver Dica Rápida</button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('franca')">Guia Completo ➔</button>
                 </div>
             </div>
         </article>
 
         <article class="card" data-categoria="praia">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Praia">
-            <div class="card-conteudo">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Malta">
                 <span class="tag">Praia</span>
+            </div>
+            <div class="card-conteudo">
                 <h2>As praias secretas de Malta</h2>
-                <p>Um guia completo pelas águas cristalinas do Mediterrâneo. Como chegar e o que levar para aproveitar o sol.</p>
+                <p>Um guia completo pelas águas cristalinas do Mediterrâneo, vilas históricas e cavernas marinhas.</p>
                 <div class="card-botoes">
                     <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
-                    <button class="btn-ler-mais" onclick="abrirDica('Leve sapatos de água! As praias mais bonitas de Malta são de pedra.')">Ver Dica Rápida</button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('malta')">Guia Completo ➔</button>
                 </div>
             </div>
         </article>
 
         <article class="card" data-categoria="natureza">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500" alt="Montanhas">
-            <div class="card-conteudo">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800" alt="Argentina">
                 <span class="tag">Natureza</span>
+            </div>
+            <div class="card-conteudo">
                 <h2>Trilhas na Patagônia Argentina</h2>
                 <p>Pronto para a aventura? Conheça o Monte Fitz Roy e os desafios das trilhas mais bonitas da América do Sul.</p>
                 <div class="card-botoes">
                     <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
-                    <button class="btn-ler-mais" onclick="abrirDica('O clima muda muito rápido. Vista-se em camadas e leve casaco corta-vento!')">Ver Dica Rápida</button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('argentina')">Guia Completo ➔</button>
                 </div>
             </div>
         </article>
+
+        <article class="card" data-categoria="cidade">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800" alt="Itália">
+                <span class="tag">Cidade</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>História e encantos na Itália</h2>
+                <p>Explore as ruínas do Império Romano, passeios pelas ruelas históricas e a autêntica culinária italiana.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('italia')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" data-categoria="praia">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800" alt="Tailândia">
+                <span class="tag">Praia</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>Ilhas paradisíacas da Tailândia</h2>
+                <p>Navegue por águas esmeralda, conheça Maya Bay e relaxe em praias tropicais inesquecíveis.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('tailandia')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" data-categoria="natureza">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800" alt="Suíça">
+                <span class="tag">Natureza</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>Os Alpes deslumbrantes da Suíça</h2>
+                <p>Picos cobertos de neve, lagos azul-turquesa e vilas charmosas nos vales alpinos.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('suica')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" data-categoria="cidade">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800" alt="Japão">
+                <span class="tag">Cidade</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>Tradição e futuro no Japão</h2>
+                <p>Mergulhe no contraste fascinante entre os néons de Tóquio, templos ancestrais e a culinária japonesa.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('japao')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" data-categoria="praia">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800" alt="Grécia">
+                <span class="tag">Praia</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>O charme e o mar da Grécia</h2>
+                <p>Encante-se pelas casinhas brancas de Santorini, o mar Egeu cristalino e pores do sol inesquecíveis.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('grecia')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" data-categoria="natureza">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?w=800" alt="Canadá">
+                <span class="tag">Natureza</span>
+            </div>
+            <div class="card-conteudo">
+                <h2>Lagos e montanhas no Canadá</h2>
+                <p>Explore o Parque Nacional de Banff, com seus lagos de águas turquesa e florestas exuberantes.</p>
+                <div class="card-botoes">
+                    <button class="btn-curtir" onclick="curtirPost(this)">❤️ <span>0</span></button>
+                    <button class="btn-ler-mais" onclick="abrirGuiaCompleto('canada')">Guia Completo ➔</button>
+                </div>
+            </div>
+        </article>
+
     </main>
+
+    <div id="modal-guia" class="modal">
+        <div class="modal-conteudo">
+            <button class="btn-fechar" onclick="fecharModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
